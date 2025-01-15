@@ -48,7 +48,7 @@ public class CourierSteps {
     }
 
     @Step("Проверка успешного ответа сервера на соответствие ожидаемым критериям")
-    public void checkSuccessResponse(Response response, Integer expectedStatusCode, @Nullable String expectedErrorMessage){
+    public void checkSuccessResponse(Response response, Integer expectedStatusCode){
 
         Assert.assertEquals(expectedStatusCode.intValue(), response.getStatusCode());
         Assert.assertTrue(response.getBody().jsonPath().get("ok"));

@@ -9,6 +9,8 @@ public class Literals {
     public static final String ACCEPT_ORDER_PATH = "/api/v1/orders/accept/";
     public static final String GET_ORDER_PATH = "api/v1/orders/track";
     public static final String FINISH_ORDER_PATH = "/api/v1/orders/finish/";
+    public static final String ORDER_ID_JSONPATH = "order.id";
+    public static final String ORDER_TRACK_JSONPATH = "track";
 
     public static final String CONTENT_TYPE_HEADER_NAME = "Content-Type";
     public static final String JSON_HEADER_VALUE = "application/json";

@@ -2,7 +2,9 @@ import io.qameta.allure.Description;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static practicum.Literals.*;
+
+import static practicum.Literals.ACCOUNT_NOT_FOUND_ERROR;
+import static practicum.Literals.NOT_ENOUGH_LOGIN_INFO_ERROR;
 
 public class CourierLoginTests {
 

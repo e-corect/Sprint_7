@@ -1,14 +1,13 @@
+import io.qameta.allure.Description;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import practicum.CourierProfile;
-import io.qameta.allure.Description;
 import org.junit.runners.Parameterized;
-import io.qameta.allure.junit4.DisplayName;
+import practicum.CourierProfile;
 
+import static practicum.Literals.PROFILE_CREATION_ERROR;
 import static practicum.TestData.*;
-import static practicum.Utils.*;
-import static practicum.Literals.*;
+import static practicum.Utils.getTimestamp;
 
 @RunWith(Parameterized.class)
 public class NotCreateCourierParameterizedTest {

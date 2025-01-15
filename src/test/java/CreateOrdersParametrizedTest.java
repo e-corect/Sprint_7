@@ -6,7 +6,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import practicum.Order;
 
-import static practicum.TestData.*;
+import static practicum.TestData.SCOOTERS_COLOR_BLACK;
+import static practicum.TestData.SCOOTERS_COLOR_GREY;
 
 @RunWith(Parameterized.class)
 public class CreateOrdersParametrizedTest {

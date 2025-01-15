@@ -18,7 +18,7 @@ public class CreateCourierTests {
     @Test
     @Description("Проверяем, что курьера можно создать")
     public void createCourierTest(){
-        courierSteps.checkSuccessResponse(courierSteps.getResponse(), 201, null);
+        courierSteps.checkSuccessResponse(courierSteps.getResponse(), 201);
     }
 
     @Test

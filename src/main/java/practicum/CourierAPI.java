@@ -3,7 +3,7 @@ package practicum;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
-import static practicum.Literals.*;
+import static practicum.Literals.COURIER_PATH;
 
 public class CourierAPI extends BaseHTTPClient{
 

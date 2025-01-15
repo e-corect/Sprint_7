@@ -11,7 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
-import static practicum.Utils.getRandomInt;
+import static practicum.Literals.ORDER_ID_JSONPATH;
+import static practicum.Literals.ORDER_TRACK_JSONPATH;
 
 public class OrdersSteps {
 
@@ -39,15 +40,15 @@ public class OrdersSteps {
 
     @Step("Отмена заказа")
     public OrdersSteps cancelOrder(){
-        response = ordersAPI.cancelOrder(response.getBody().jsonPath().get("track").toString());
+        response = ordersAPI.cancelOrder(response.getBody().jsonPath().get(ORDER_TRACK_JSONPATH).toString());
         return this;
     }
 
     @Step("Проверка ответа сервера после создания заказа")
     public void checkOrderCreationResponse(Integer expectedStatusCode){
         Assert.assertEquals(expectedStatusCode.intValue(), response.getStatusCode());
-        Assert.assertTrue(response.getBody().asString().contains("track"));
-        response.then().assertThat().body("track", instanceOf(Integer.class));
+        Assert.assertTrue(response.getBody().asString().contains(ORDER_TRACK_JSONPATH));
+        response.then().assertThat().body(ORDER_TRACK_JSONPATH, instanceOf(Integer.class));
     }
 
     @Step("Генерируем и создаем в системе случайное число (от 2 до 5) заказов, вытаскиваем из ответа trackId, получаем заказ, вытаскиваем его Id, формируем список")
@@ -56,23 +57,9 @@ public class OrdersSteps {
                 .response.as(TrackOrder.class)
                 .getTrack())
                 .getBody()
-                .jsonPath().get("order.id");
+                .jsonPath().get(ORDER_ID_JSONPATH);
         ordersIdList.add(orderId);
         return orderId;
-    }
-
-    @Step("Генерируем и создаем в системе случайное число (от 2 до 5) заказов, вытаскиваем из ответа trackId, получаем заказ, вытаскиваем его Id, формируем список")
-    public ArrayList<Integer> generateOrdersAndCreateOrdersList(){
-        ArrayList<Integer> ordersIdList = new ArrayList<>();
-        for(int i=0;i<getRandomInt(2, 5);i++){      //вернхняя граница исключена
-            ordersIdList.add(
-                ordersAPI.getOrderId(generateOrder()
-                .response.as(TrackOrder.class)
-                .getTrack())
-                .getBody()
-                .jsonPath().get("order.id"));
-        }
-        return this.ordersIdList = ordersIdList;
     }
 
     @Step("Получаем список заказов из системы для курьера")
@@ -95,12 +82,6 @@ public class OrdersSteps {
         }
     }
 
-    @Step("Принимаем список заказов на курьера")
-    public OrdersSteps acceptOrders(Integer courierId){
-        for(int i=0;i<ordersIdList.size();i++){
-            response = ordersAPI.acceptOrder(ordersIdList.get(i), courierId);}
-        return this;
-    }
 
     @Step("Принимаем заказ на курьера")
     public OrdersSteps acceptOrder(Integer orderId, Integer courierId){
