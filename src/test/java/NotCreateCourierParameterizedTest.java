@@ -27,21 +27,21 @@ public class NotCreateCourierParameterizedTest {
     @Parameterized.Parameters
     public static Object[][] getTestData() {
         return new Object[][]{
-                {new CourierProfile(LOGIN_PREFIX + getTimestamp(), CORRECT_COURIER_PWD, ""), 400, PROFILE_CREATION_ERROR},      // поле firstName обязательное, но профиль курьера создается
+                {new CourierProfile(LOGIN_PREFIX + getTimestamp(), CORRECT_COURIER_PWD, ""), 400, PROFILE_CREATION_ERROR},  // поле firstName обязательное, но профиль курьера создается
                 {new CourierProfile(LOGIN_PREFIX + getTimestamp(), "", COURIER_NAMES_LIST[0]), 400, PROFILE_CREATION_ERROR},
                 {new CourierProfile("", CORRECT_COURIER_PWD, COURIER_NAMES_LIST[0]), 400, PROFILE_CREATION_ERROR}
         };
     }
 
     @Before
+    @Description("Подготовка тестовых данных - создание профиля курьера в системе")
     public void prepare(){
         courierSteps.setCourierProfile(body);
         courierSteps.createCourier();
     }
 
     @Test
-    @DisplayName("Checking if fields in a 'POST:/api/v1/courier' request are required")
-    @Description("The method checks whether the fields in the request body are required to create a courier POST:/api/v1/courier")
+    @Description("Проверяем кейс: если какого-то поля нет, запрос  'POST:/api/v1/courier' возвращает ошибку")
     public void courierNotCreatedTest(){
         courierSteps.checkUnsuccessResponse(courierSteps.getResponse(),expectedStatusCode, expectedErrorMessage);
     }

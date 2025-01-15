@@ -16,7 +16,6 @@ public class Order {
     private Integer rentTime;
     private String deliveryDate;
     private String comment;
-    @Nullable
     private ArrayList<String> color;
 
     public ArrayList<String> getColor() {

@@ -1,11 +1,9 @@
 package practicum;
 
-import com.sun.istack.Nullable;
-
 public class CourierCreds {
-    @Nullable
+
     private String login;
-    @Nullable
+
     private String password;
 
     public String getLogin() {

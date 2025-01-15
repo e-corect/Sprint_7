@@ -1,7 +1,5 @@
 package practicum.OrdersList;
 
-import practicum.OrdersList.Order;
-
 import java.util.ArrayList;
 
 public class OrdersList {

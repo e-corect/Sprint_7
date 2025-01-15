@@ -1,11 +1,11 @@
 package practicum;
 
 import com.github.javafaker.Faker;
+
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 
 public class Utils {

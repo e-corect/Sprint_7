@@ -1,14 +1,11 @@
 package practicum;
 
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.filter.log.ErrorLoggingFilter;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestLogSpecification;
 import io.restassured.specification.RequestSpecification;
 
-import java.io.File;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;

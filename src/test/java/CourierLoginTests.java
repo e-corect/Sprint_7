@@ -9,6 +9,7 @@ public class CourierLoginTests {
     private CourierSteps courierSteps = new CourierSteps();
 
     @Before
+    @Description("Подготовка тестовых данных - создание курьера в системе")
     public void prepare(){
         courierSteps.createRandomCourier();
     }
@@ -47,6 +48,7 @@ public class CourierLoginTests {
     }
 
     @Test
+    @Description("Проверка возможности авторизоваться под несуществующим пользователем")
     public void courierLoginWithWrongLoginTest(){
         courierSteps.checkUnsuccessResponse(
                 courierSteps.courierLogin(courierSteps.getCourierProfile().getLogin() + "1",
@@ -54,6 +56,7 @@ public class CourierLoginTests {
     }
 
     @After
+    @Description("Удаляем профиль созданного курьера")
     public void clean(){
         courierSteps.removeCourier();
     }

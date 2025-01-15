@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: NotCreateCourierParameterizedTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.619 s <<< FAILURE! - in NotCreateCourierParameterizedTest
-courierNotCreatedTest[0](NotCreateCourierParameterizedTest)  Time elapsed: 0.224 s  <<< FAILURE!
-java.lang.AssertionError: expected:<400> but was:<201>
-	at NotCreateCourierParameterizedTest.courierNotCreatedTest(NotCreateCourierParameterizedTest.java:46)
-

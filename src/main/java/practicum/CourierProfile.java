@@ -1,9 +1,7 @@
 package practicum;
 
-import com.sun.istack.Nullable;
-
 public class CourierProfile extends CourierCreds{
-    @Nullable
+
     private String firstName;
 
     public String getFirstName() {
